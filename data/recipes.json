@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Summer Citrus Salad",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCcM9jl5xzlfcDgyyYboEWLpdZVUmxa1NFtjMVVtp7SXw2LHgmSgQMB4vUGyRdCxqrqyrEjWbykPk4gWprIezAQIPrg1JaHsNlMQD4Ck1vPVyfKKxWZZtGiVGylIOtQR1OMuE_zmQhZNl7kFAQ2QmG98lm7exNe8iiy42gOIkYtWQHISwJMaUIWOa0FDZcj2f86Yc8F7e2sSfwC0qVYXBwjTFKn-IUq75DX5pL74QXRYZalq49tPo-AB8kpDQqGgX8zP-p8Z0fh-hs",
+    "tags": [
+      { "label": "15m", "icon": "schedule", "color": "secondary" },
+      { "label": "Fresh", "icon": "eco", "color": "primary" }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Glazed Roasted Salmon",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBjNujTQYbBduHsBfP3dT7DgOXRiHG3Ct2y7XbJ7mUyCE7lvS0SfuWI2IihS__dabaS63nno-6lHmfMe6yQez5airVrOlQ6wcx_tj4z3q1tDvT_5ondFpehPXF1CIu0BoqGJ6hWBLtCxR2yQ2JpyOpqMvi3PwZ8lT5lVzE5xJ92towcGXyXdIR5snzvi1RecC9nNrGKc1bQ2kFpLMVeIUtU-3Wjio4OejeB9GTs85NHO7m_7o9-bMYZ8kiPG7f6QhImujrUOWJk8xY",
+    "tags": [
+      { "label": "Oven", "icon": "oven_gen", "color": "secondary" },
+      { "label": "30m", "icon": "schedule", "color": "secondary" }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Crispy Sweet Potato Fries",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBlccRyMIKlqCOwoUZfcJddTjbIeN_cwtYJomrZgg0fHF7jJU05_w3Ms9pgJPN5ZqGmEJZiSte8NG9iHJxyPTXqC197gNN37XfuaodefXTzYt-9rwlRo-V4ADPU9xe0L7_A-BpAi8Wu6c-t_AlCVvy4iAtzyx_WtaFKQBhCaqU-Mb31NrUgS34bt1HszY1X-ut6lGdXTdJaLIy8NkOX8T4Qbo9GGbVwfoVKl56oSTfetTf_Sr3p7TrK9ZmBMcBsVBaTVZJfQihMLk0",
+    "tags": [
+      { "label": "Airfryer", "icon": "airfryer", "color": "secondary" },
+      { "label": "Snack", "icon": "restaurant", "color": "primary" }
+    ]
+  }
+]
