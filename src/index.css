@@ -1,3 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ab3500;
+  --color-secondary: #27657c;
+  --color-on-surface: #171b2b;
+  --color-background: #faf8ff;
+  --color-surface: #faf8ff;
+  --color-surface-container: #ebedff;
+  --color-surface-container-low: #f3f2ff;
+  --color-outline-variant: #e1bfb5;
+
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  --spacing-margin-mobile: 16px;
+  --spacing-unit: 8px;
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1280px;
+  --spacing-margin-desktop: 48px;
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-headline-lg: "Plus Jakarta Sans", sans-serif;
+  --font-headline-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-lg: "Literata", serif;
+  --font-body-md: "Literata", serif;
+  --font-label-lg: "Plus Jakarta Sans", sans-serif;
+  --font-label-md: "Plus Jakarta Sans", sans-serif;
+}
+
 @keyframes text-shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
@@ -61,7 +93,7 @@
     position: absolute;
     inset: -4px;
     border-radius: 9999px;
-    background: var(--tw-primary);
+    background: var(--color-primary);
     opacity: 0.3;
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     z-index: -1;
