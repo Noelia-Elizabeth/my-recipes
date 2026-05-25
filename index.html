@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>My Receipes - High-End Culinary Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Literata:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ab3500",
+                        "secondary": "#27657c",
+                        "on-surface": "#171b2b",
+                        "background": "#faf8ff",
+                        "surface": "#faf8ff",
+                        "surface-container": "#ebedff",
+                        "surface-container-low": "#f3f2ff",
+                        "outline-variant": "#e1bfb5",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "display": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Literata"],
+                        "body-md": ["Literata"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        @keyframes text-shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .text-shimmer {
+            background: linear-gradient(90deg, #fff 0%, #ffb59d 25%, #fff 50%, #ffb59d 75%, #fff 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: text-shimmer 6s linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1.05); }
+            50% { transform: translateY(-20px) scale(1.07); }
+        }
+        .hero-float { animation: float 10s ease-in-out infinite; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .recipe-card {
+            perspective: 1000px;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .recipe-card:hover {
+            transform: translateY(-8px) rotateX(2deg) rotateY(1deg);
+        }
+        
+        .animated-bg {
+            background: linear-gradient(-45deg, #faf8ff, #ebedff, #f3f2ff, #faf8ff);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .magnetic-pulse {
+            position: relative;
+        }
+        .magnetic-pulse::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 9999px;
+            background: var(--tw-primary);
+            opacity: 0.3;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            z-index: -1;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="animated-bg text-on-background font-body-md text-body-md min-h-screen flex flex-col selection:bg-primary/20">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 glass">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-display text-4xl font-extrabold text-primary tracking-tighter hover:scale-105 transition-transform" href="#">My Receipes</a>
+<nav class="hidden md:flex gap-gutter font-label-lg text-label-lg">
+<a class="relative text-primary font-bold group" href="#">
+                Explore
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-100 transition-transform origin-left"></span>
+</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-all group relative" href="#">
+                Categories
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-all group relative" href="#">
+                Saved
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-all group relative" href="#">
+                Meal Planner
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+</a>
+</nav>
+<div class="flex items-center gap-unit">
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-0">
+<!-- Hero Section -->
+<section class="relative w-full h-[85vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Vibrant kitchen ingredients" class="w-full h-full object-cover hero-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA07bQiEf7izJSO9ASQTkeDtb0HJ8Zc3Rz6lyyL68YX3WjzyqnMCSX9fqKVNdeiOQvBejqrIARmX68TzVZYYHzccGQ91RcUq7n_xrp2o-fI2TznB3QSRMJvaX6PZCGS9VuHWFgNsG6iiWl0wZdvRjD90yZoQtSVSMM5IfLUfEjYhqkSKLUEhFBM5IwJjnYXL7yyW7TVdIvSg0aiWGO146d-JegsvKRtZoQuHGhKhJocae-pnfGuQAQ3GDa6h1reXmR2fZcNWxbRcd8">
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-background/100"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl w-full">
+<h1 class="text-shimmer font-display text-5xl md:text-7xl font-extrabold mb-8 drop-shadow-2xl leading-[1.1]">Find Your Next<br>Craving</h1>
+<div class="relative w-full max-w-2xl mx-auto group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative flex items-center">
+<input class="w-full py-6 pl-8 pr-16 rounded-full glass text-on-surface font-body-lg text-lg border-0 focus:ring-2 focus:ring-primary shadow-2xl placeholder-on-surface/50" placeholder="Search curated recipes, ingredients..." type="text">
+<button class="absolute right-4 w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full hover:scale-110 transition-all active:scale-90 shadow-lg">
+<span class="material-symbols-outlined text-[28px]">search</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+<!-- Category Filter -->
+<div class="reveal flex flex-wrap gap-4 mb-20 justify-center active">
+<button class="px-8 py-3 rounded-full bg-primary text-white font-label-lg text-label-lg shadow-xl shadow-primary/20 hover:scale-105 transition-transform active:scale-95 magnetic-pulse" style="--tw-primary: #ab3500">All</button>
+<button class="px-8 py-3 rounded-full glass border border-outline-variant text-on-surface font-label-lg text-label-lg hover:bg-secondary hover:text-white hover:scale-105 transition-all active:scale-95">Sweet</button>
+<button class="px-8 py-3 rounded-full glass border border-outline-variant text-on-surface font-label-lg text-label-lg hover:bg-secondary hover:text-white hover:scale-105 transition-all active:scale-95">Savory</button>
+<button class="px-8 py-3 rounded-full glass border border-outline-variant text-on-surface font-label-lg text-label-lg hover:bg-secondary hover:text-white hover:scale-105 transition-all active:scale-95">Quick Meals</button>
+<button class="px-8 py-3 rounded-full glass border border-outline-variant text-on-surface font-label-lg text-label-lg hover:bg-secondary hover:text-white hover:scale-105 transition-all active:scale-95">Desserts</button>
+</div>
+<!-- Recipe Grid -->
+<div class="reveal active">
+<div class="flex items-center justify-between mb-12">
+<h2 class="font-display text-4xl font-extrabold text-on-surface tracking-tight">Featured Recipes</h2>
+<a class="text-primary font-label-lg hover:underline underline-offset-4" href="#">Browse all</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<article class="recipe-card group relative bg-white rounded-2xl overflow-hidden shadow-xl border border-surface-container hover:shadow-2xl transition-all">
+<div class="relative h-72 overflow-hidden">
+<img alt="Summer Citrus Salad" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcM9jl5xzlfcDgyyYboEWLpdZVUmxa1NFtjMVVtp7SXw2LHgmSgQMB4vUGyRdCxqrqyrEjWbykPk4gWprIezAQIPrg1JaHsNlMQD4Ck1vPVyfKKxWZZtGiVGylIOtQR1OMuE_zmQhZNl7kFAQ2QmG98lm7exNe8iiy42gOIkYtWQHISwJMaUIWOa0FDZcj2f86Yc8F7e2sSfwC0qVYXBwjTFKn-IUq75DX5pL74QXRYZalq49tPo-AB8kpDQqGgX8zP-p8Z0fh-hs">
+<div class="absolute inset-0 bg-black/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center">
+<button class="px-6 py-2 bg-white text-primary rounded-full font-label-lg hover:scale-110 transition-transform">View Recipe</button>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-display text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">Summer Citrus Salad</h3>
+<div class="flex gap-3">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 15m
+                            </span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">eco</span> Fresh
+                            </span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="recipe-card group relative bg-white rounded-2xl overflow-hidden shadow-xl border border-surface-container hover:shadow-2xl transition-all">
+<div class="relative h-72 overflow-hidden">
+<img alt="Glazed Roasted Salmon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjNujTQYbBduHsBfP3dT7DgOXRiHG3Ct2y7XbJ7mUyCE7lvS0SfuWI2IihS__dabaS63nno-6lHmfMe6yQez5airVrOlQ6wcx_tj4z3q1tDvT_5ondFpehPXF1CIu0BoqGJ6hWBLtCxR2yQ2JpyOpqMvi3PwZ8lT5lVzE5xJ92towcGXyXdIR5snzvi1RecC9nNrGKc1bQ2kFpLMVeIUtU-3Wjio4OejeB9GTs85NHO7m_7o9-bMYZ8kiPG7f6QhImujrUOWJk8xY">
+<div class="absolute inset-0 bg-black/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center">
+<button class="px-6 py-2 bg-white text-primary rounded-full font-label-lg hover:scale-110 transition-transform">View Recipe</button>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-display text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">Glazed Roasted Salmon</h3>
+<div class="flex gap-3">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">oven_gen</span> Oven
+                            </span>
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 30m
+                            </span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="recipe-card group relative bg-white rounded-2xl overflow-hidden shadow-xl border border-surface-container hover:shadow-2xl transition-all">
+<div class="relative h-72 overflow-hidden">
+<img alt="Crispy Sweet Potato Fries" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlccRyMIKlqCOwoUZfcJddTjbIeN_cwtYJomrZgg0fHF7jJU05_w3Ms9pgJPN5ZqGmEJZiSte8NG9iHJxyPTXqC197gNN37XfuaodefXTzYt-9rwlRo-V4ADPU9xe0L7_A-BpAi8Wu6c-t_AlCVvy4iAtzyx_WtaFKQBhCaqU-Mb31NrUgS34bt1HszY1X-ut6lGdXTdJaLIy8NkOX8T4Qbo9GGbVwfoVKl56oSTfetTf_Sr3p7TrK9ZmBMcBsVBaTVZJfQihMLk0">
+<div class="absolute inset-0 bg-black/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 flex items-center justify-center">
+<button class="px-6 py-2 bg-white text-primary rounded-full font-label-lg hover:scale-110 transition-transform">View Recipe</button>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-display text-2xl font-bold text-on-surface mb-4 group-hover:text-primary transition-colors">Crispy Sweet Potato Fries</h3>
+<div class="flex gap-3">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">airfryer</span> Airfryer
+                            </span>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">restaurant</span> Snack
+                            </span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto glass border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 gap-gutter max-w-container-max mx-auto w-full">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display text-2xl font-bold text-primary">My Receipes</span>
+<span class="font-body-md text-sm text-secondary/70">© 2024 My Receipes Portfolio.</span>
+</div>
+<div class="flex flex-wrap gap-8 font-label-md text-on-surface/70">
+<a class="hover:text-primary transition-colors" href="#">About</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+<span class="font-body-md text-sm text-secondary/70">© 2024 My Receipes Portfolio.</span>
+</div>
+</footer>
+<script>
+    // Reveal on Scroll logic
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Parallax background effect for hero
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroImg = document.querySelector('.hero-float');
+        if (heroImg) {
+            heroImg.style.transform = `translateY(${scrolled * 0.4}px) scale(1.05)`;
+        }
+    });
+
+    // Handle button magnetic interaction simulation
+    document.querySelectorAll('.magnetic-pulse').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0px, 0px)`;
+        });
+    });
+</script>
+
+
+</body></html>
